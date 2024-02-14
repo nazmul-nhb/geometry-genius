@@ -77,17 +77,19 @@ function getInputValueById(inputFieldId) {
 function setInnerTextById(shapeName, elementId, area) {
 
     const element = document.getElementById(elementId);
-    element.innerHTML = `Area: ${area} cm<sup>2</sup>`;
 
     const calculatedArea = document.getElementById('area-calculated');
     const li = document.createElement('li');
     li.classList.add('list-decimal');
-    li.innerHTML = `The area of the ${shapeName} is ${area} cm<sup>2</sup>`;
     calculatedArea.appendChild(li);
 
     if (isNaN(area) === true) {
         element.innerText = 'invalid input';
         li.innerText = 'invalid input';
+    }
+    else{
+        element.innerHTML = `Area: ${area} cm<sup>2</sup>`;
+        li.innerHTML = `The area of the ${shapeName} is ${area} cm<sup>2</sup>`;
     }
 }
 
